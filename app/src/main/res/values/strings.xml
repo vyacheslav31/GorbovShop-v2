@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GorbovShop-v2</string>
+    <string name="action_settings">Settings</string>
+    <string name="item_name">placeholderName</string>
+    <string name="description">placeholderDescription</string>
+    <string name="item_price">Price: </string>
+    <string name="item_quantity">Qty: </string>
+    <string name="plus_button">+</string>
+    <string name="minus_button">-</string>
+    <string name="card_title_text">menuItem</string>
+    <string name="card_price_text">Price:</string>
+    <string name="item_description_text">itemDescription</string>
+    <string name="add_button_text">+</string>
+    <string name="remove_button_text">−</string>
+    <string name="card_quantity_text">Quantity:</string>
+    <string name="card_subtotal_text">Subtotal:</string>
+
+
+</resources>
