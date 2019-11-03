@@ -7,23 +7,24 @@ import android.os.Parcelable;
 import com.example.gorbovshop_v2.R;
 
 public class MenuItem implements Parcelable {
+    private int mImageResource;
     private String mItemName;
     private String mItemDescription;
     private int mItemPrice;
     private int mItemCode;
-    private int mImageResource;
 
-    public MenuItem() {
-    }
-
-    public MenuItem(String mItemName, int mItemPrice, ItemCode mItemCode) {
-        this.mItemName = mItemName;
-        this.mItemPrice = mItemPrice;
-        this.mItemCode = mItemCode.getCode();
+    public MenuItem(int imageResource, String itemName, String itemDescription, int itemPrice, ItemCode itemCode) {
+        this.mImageResource = imageResource;
+        this.mItemName = itemName;
+        this.mItemDescription = itemDescription;
+        this.mItemPrice = itemPrice;
+        this.mItemCode = itemCode.getCode();
     }
 
     private MenuItem(Parcel in) {
+        mImageResource = in.readInt();
         mItemName = in.readString();
+        mItemDescription = in.readString();
         mItemPrice = in.readInt();
         mItemCode = in.readInt();
     }
@@ -48,16 +49,18 @@ public class MenuItem implements Parcelable {
         return mItemName;
     }
 
-    public void setItemName(String mItemName) {
-        this.mItemName = mItemName;
-    }
 
     public int getItemPrice() {
         return mItemPrice;
     }
 
-    public void setItemPrice(int mItemPrice) {
-        this.mItemPrice = mItemPrice;
+
+    public int getImageResource() {
+        return mImageResource;
+    }
+
+    public String getItemDescription() {
+        return mItemDescription;
     }
 
     @Override
@@ -67,7 +70,9 @@ public class MenuItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mImageResource);
         dest.writeString(mItemName);
+        dest.writeString(mItemDescription);
         dest.writeInt(mItemPrice);
         dest.writeInt(mItemCode);
     }

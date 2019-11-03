@@ -2,7 +2,7 @@ package com.example.gorbovshop_v2.model;
 
 public enum ItemCode {
     PADTHAI, SALTPPRCHKN, AVCADOSLD, TMPURASHRMP, SUSHIPLAT, BEEFDUMPLINGS, CHKNTACOS, BEEFSTRGNOFF,
-    POUTINE, BEEFCURRY;
+    POUTINE, BUTTRCHKN;
 
     private final int BASE_VALUE = 32240000;
     private int completeValue;

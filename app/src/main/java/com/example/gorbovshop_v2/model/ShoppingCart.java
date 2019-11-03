@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class ShoppingCart implements Parcelable {
     private int itemCount;
     private int cartSubtotal;
-    private ArrayList<MenuItem> cart;
+    private ArrayList<MenuItem> itemList;
 
     // Default Constructor
     public ShoppingCart() {
-        cart = new ArrayList<>();
+        itemList = new ArrayList<>();
         itemCount = 0;
         cartSubtotal = 0;
     }
@@ -21,7 +21,7 @@ public class ShoppingCart implements Parcelable {
     private ShoppingCart(Parcel in) {
         itemCount = in.readInt();
         cartSubtotal = in.readInt();
-        cart = in.createTypedArrayList(MenuItem.CREATOR);
+        itemList = in.createTypedArrayList(MenuItem.CREATOR);
     }
 
     public static final Creator<ShoppingCart> CREATOR = new Creator<ShoppingCart>() {
@@ -39,14 +39,14 @@ public class ShoppingCart implements Parcelable {
     public boolean addItem(MenuItem item) {
         itemCount++;
         cartSubtotal += item.getItemPrice();
-        return cart.add(item);
+        return itemList.add(item);
     }
 
     public boolean removeItem(MenuItem item) {
-        if (!cart.isEmpty()) {
+        if (!itemList.isEmpty()) {
             itemCount--;
             cartSubtotal -= item.getItemPrice();
-            return cart.remove(item);
+            return itemList.remove(item);
         }
         else
             return false;
@@ -57,12 +57,16 @@ public class ShoppingCart implements Parcelable {
         return itemCount;
     }
 
+    public ArrayList<MenuItem> getItemList() {
+        return itemList;
+    }
+
     public int getCartSubtotal() {
         return cartSubtotal;
     }
 
     public MenuItem getItemById(int id) {
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (item.getItemCode() == id)
                 return item;
         return null;
@@ -71,7 +75,7 @@ public class ShoppingCart implements Parcelable {
     public int getItemQtyById(int id) {
         int qty = 0;
 
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (item.getItemCode() == id) {
                 qty++;
             }
@@ -82,7 +86,7 @@ public class ShoppingCart implements Parcelable {
     public String getItemNameById(int id) {
         String name = "";
 
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (item.getItemCode() == id) {
                 return item.getItemName();
             }
@@ -93,7 +97,7 @@ public class ShoppingCart implements Parcelable {
     public int getItemCountById(int id) {
         int count = 0;
 
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (item.getItemCode() == id) {
                 count++;
             }
@@ -102,7 +106,7 @@ public class ShoppingCart implements Parcelable {
     }
 
     public int getItemPriceById(int id) {
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (item.getItemCode() == id) {
                 return item.getItemPrice();
             }
@@ -113,7 +117,7 @@ public class ShoppingCart implements Parcelable {
     public ArrayList<Integer> getIds() {
         ArrayList<Integer> uniqueIds = new ArrayList<>();
 
-        for (MenuItem item : cart)
+        for (MenuItem item : itemList)
             if (!uniqueIds.contains(item.getItemCode())) {
                 uniqueIds.add(item.getItemCode());
             }
@@ -130,7 +134,7 @@ public class ShoppingCart implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(itemCount);
         dest.writeInt(cartSubtotal);
-        dest.writeTypedList(cart);
+        dest.writeTypedList(itemList);
     }
 }
 

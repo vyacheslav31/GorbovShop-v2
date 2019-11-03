@@ -14,6 +14,7 @@
     <string name="remove_button_text">−</string>
     <string name="card_quantity_text">Quantity:</string>
     <string name="card_subtotal_text">Subtotal:</string>
+    <string name="start_shopping">Start Shopping</string>
 
 
 </resources>
