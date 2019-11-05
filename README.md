@@ -1,6 +1,9 @@
 # GorbovShop-v2
 A better version of the original GorbovShop
 
+## KNOWN BUGS
+There is currently a bug that when adding an item to the cart, other items inexplicably are put into the Shopping Cart as well. Will fix in the future.
+
 ## Emulator
 The emulator used was Nexus 5X with API 28(Oreo)
 
