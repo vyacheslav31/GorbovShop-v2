@@ -3,22 +3,45 @@ package com.example.gorbovshop_v2;
 import android.os.Bundle;
 
 import com.example.gorbovshop_v2.model.ItemCode;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.gorbovshop_v2.model.ShoppingCart;
+import com.example.gorbovshop_v2.model.CartItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MenuActivity extends AppCompatActivity {
 
+    private ShoppingCart shoppingCart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        shoppingCart = new ShoppingCart();
+
+        shoppingCart.addItem(new CartItem(
+                R.drawable.avcadosld, ItemCode.AVCADOSLD));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.bfdumplings, ItemCode.BEEFDUMPLINGS));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.buttrchicken, ItemCode.BUTTRCHKN ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.chkntacos, ItemCode.CHKNTACOS ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.padthai, ItemCode.PADTHAI ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.poutine, ItemCode.POUTINE ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.saltpprchkn, ItemCode.SALTPPRCHKN ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.stroganoff, ItemCode.BEEFSTRGNOFF ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.sushiplat, ItemCode.SUSHIPLAT ));
+        shoppingCart.addItem(new CartItem(
+                R.drawable.tmpurashrmp, ItemCode.TMPURASHRMP ));
     }
 
     @Override

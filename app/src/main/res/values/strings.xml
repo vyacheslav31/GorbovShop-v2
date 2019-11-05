@@ -15,6 +15,30 @@
     <string name="card_quantity_text">Quantity:</string>
     <string name="card_subtotal_text">Subtotal:</string>
     <string name="start_shopping">Start Shopping</string>
-
+    <string name="padthai">Pad Thai</string>
+    <string name="sltpprchkn">Salt and Pepper Chicken</string>
+    <string name="avocadosld">Avocado Salad</string>
+    <string name="tempurashrmp">Tempura Shrimp</string>
+    <string name="sushiplat">Sushi Platter</string>
+    <string name="bfdumplings">Beef Dumplings</string>
+    <string name="chkntacos">Chicken Tacos</string>
+    <string name="beefstrgnoff">Beef Stroganoff</string>
+    <string name="poutine">Poutine</string>
+    <string name="bttrchkn">Butter Chicken</string>
+    <string name="padthai_desc">Pad Thai is typical street fare across Thailand—and it\'s probably the #1
+        order at your local Thai restaurant. In fact, this popular stir-fried noodle dish is the national dish
+        of Thailand. But what exactly is it about Pad Thai that makes it so delicious? Bold, umami flavors and
+        a variety of textures make Pad Thai into a comforting meal that everyone can love.</string>
+    <string name="sltpprchkn_desc">Delicious bits of chicken with a salt and pepper crust on a bed of fluffy rice.
+        Wok fried spices and vegetables are mixed with battered chicken breast to create the ultimate combination of salt, spice and crunch.</string>
+    <string name="avcadosld_desc">Creamy avocadoes and tangy tomatoes are mixed with fresh lettuce to make a healthy and scrumptious meal.
+    The salad is topped with a sumptuous caesar salad dressing and is dotted with seasoned breadcrumbs and chili flakes.</string>
+    <string name="tmpurashrmp_desc">A delicious shrimp dish</string>
+    <string name="sushiplat_desc">A delicious sushi dish</string>
+    <string name="beefdump_desc">A delicious beef dumpling dish</string>
+    <string name="chkntacos_desc">A delicious chicken taco dish</string>
+    <string name="bfstrgnoff_desc">A delicious beef stroganoff dish</string>
+    <string name="poutine_desc">A delicious poutine dish</string>
+    <string name="butterchkn_desc">A delicious butter chicken dish</string>
 
 </resources>
