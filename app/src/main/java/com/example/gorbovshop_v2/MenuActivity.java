@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.example.gorbovshop_v2.model.ItemCode;
 import com.example.gorbovshop_v2.model.ShoppingCart;
 import com.example.gorbovshop_v2.model.CartItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,6 +61,15 @@ public class MenuActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
     @Override
