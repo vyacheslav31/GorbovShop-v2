@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:padding="4dp"
         android:scrollbars="vertical"
-        android:background="#d9188c">
+        android:background="#FF4A83">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -25,7 +25,7 @@
         android:layout_gravity="end|bottom"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/shopping_cart_icon"
         android:layout_margin="16dp"
         />
 

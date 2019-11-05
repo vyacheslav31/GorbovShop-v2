@@ -27,6 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.gorbovshop_v2.MainActivity" />
         </activity>
+        <activity android:name=".CheckoutActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.gorbovshop_v2.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>

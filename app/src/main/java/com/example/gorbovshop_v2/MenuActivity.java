@@ -1,5 +1,6 @@
 package com.example.gorbovshop_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gorbovshop_v2.model.ItemCode;
@@ -8,6 +9,7 @@ import com.example.gorbovshop_v2.model.CartItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,8 +19,9 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements ShippingDialog.SingleChoiceListener {
 
+    // Declare members
     private ShoppingCart mShoppingCart;
     private ArrayList<CartItem> mCartItems;
     private RecyclerView mRecyclerView;
@@ -30,9 +33,11 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        // Create ArrayList and ShoppingCart for the RecyclerView
         mCartItems = new ArrayList<CartItem>();
         mShoppingCart = new ShoppingCart();
 
+        // Add items to the arraylist
         mCartItems.add(new CartItem(
                 R.drawable.avcadosld, ItemCode.AVCADOSLD));
         mCartItems.add(new CartItem(
@@ -54,23 +59,30 @@ public class MenuActivity extends AppCompatActivity {
         mCartItems.add(new CartItem(
                 R.drawable.tmpurashrmp, ItemCode.TMPURASHRMP ));
 
+        // Create layout manager, adapter and get recyclerview
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new ShoppingAdapter(mCartItems, mShoppingCart);
 
+        // Initialize the recycler view with layoutmanager and adapter
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+        // Create FAB
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+            // Create on Click
             @Override
             public void onClick(View view) {
-
+                DialogFragment shippingOptionsDialog = new ShippingDialog();
+                shippingOptionsDialog.setCancelable(false);
+                shippingOptionsDialog.show(getSupportFragmentManager(), "Shipping Options");
             }
         });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,9 +106,35 @@ public class MenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addToCart(View view) {
+
+
+    @Override
+    public void onPositiveButtonClicked(String[] list, int position) {
+        int shippingCost;
+        // Get shipping cost
+        switch (position) {
+            case 0:
+                shippingCost = 50;
+                break;
+            case 1:
+                shippingCost = 10;
+                break;
+            case 3:
+                shippingCost = 0;
+                break;
+
+                default:
+                    shippingCost = 0;
+        }
+        // Submit shipping cost w/ the shopping cart
+        Intent intent = new Intent(MenuActivity.this, CheckoutActivity.class);
+        intent.putExtra("Shipping Cost", shippingCost);
+        intent.putExtra("Cart", mShoppingCart);
+        startActivity(intent);
     }
 
-    public void removeFromCart(View view) {
+    @Override
+    public void onNegativeButtonClicked() {
+
     }
 }
