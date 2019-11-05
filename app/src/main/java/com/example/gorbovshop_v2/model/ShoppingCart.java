@@ -43,7 +43,7 @@ public class ShoppingCart implements Parcelable {
     }
 
     public boolean removeItem(CartItem item) {
-        if (!itemList.isEmpty()) {
+        if (!itemList.isEmpty() && itemList.contains(item)) {
             itemCount--;
             cartSubtotal -= item.getItemPrice();
             return itemList.remove(item);

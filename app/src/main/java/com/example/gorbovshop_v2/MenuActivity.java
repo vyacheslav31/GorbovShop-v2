@@ -7,41 +7,59 @@ import com.example.gorbovshop_v2.model.ShoppingCart;
 import com.example.gorbovshop_v2.model.CartItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private ShoppingCart shoppingCart;
+    private ShoppingCart mShoppingCart;
+    private ArrayList<CartItem> mCartItems;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        shoppingCart = new ShoppingCart();
+        mCartItems = new ArrayList<CartItem>();
+        mShoppingCart = new ShoppingCart();
 
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.avcadosld, ItemCode.AVCADOSLD));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.bfdumplings, ItemCode.BEEFDUMPLINGS));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.buttrchicken, ItemCode.BUTTRCHKN ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.chkntacos, ItemCode.CHKNTACOS ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.padthai, ItemCode.PADTHAI ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.poutine, ItemCode.POUTINE ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.saltpprchkn, ItemCode.SALTPPRCHKN ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.stroganoff, ItemCode.BEEFSTRGNOFF ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.sushiplat, ItemCode.SUSHIPLAT ));
-        shoppingCart.addItem(new CartItem(
+        mCartItems.add(new CartItem(
                 R.drawable.tmpurashrmp, ItemCode.TMPURASHRMP ));
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new ShoppingAdapter(mCartItems, mShoppingCart);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -64,5 +82,11 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addToCart(View view) {
+    }
+
+    public void removeFromCart(View view) {
     }
 }
