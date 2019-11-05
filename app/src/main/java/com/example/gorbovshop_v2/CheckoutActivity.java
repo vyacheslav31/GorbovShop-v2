@@ -28,8 +28,6 @@ public class CheckoutActivity extends AppCompatActivity {
         int shippingFees = intent.getIntExtra("Shipping Cost", 0);
         ArrayList<CartItem> itemList = cart.getItemList();
 
-        System.out.println("Hello World" + shippingFees);
-
         TextView checkoutTextView = findViewById(R.id.checkout_textview);
 
         int cartSubtotal = cart.getCartSubtotal();
